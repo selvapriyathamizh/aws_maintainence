@@ -13,4 +13,5 @@ resource "aws_instance" "example" {
 variable "instance_type" {
   description = "Instance type to set for the EC2 instance"
   type        = string
+  default     = "t2.micro" # Default target instance type
 }
