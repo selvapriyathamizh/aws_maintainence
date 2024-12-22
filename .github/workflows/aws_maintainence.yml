@@ -25,12 +25,12 @@ jobs:
 
     - name: Terraform Plan
       env:
-        AWS_ACCESS_KEY_ID: AKIAUW4RASH7S63OZG32
-        AWS_SECRET_ACCESS_KEY: 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
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform plan
 
     - name: Terraform Apply
       env:
-        AWS_ACCESS_KEY_ID: AKIAUW4RASH7S63OZG32
-        AWS_SECRET_ACCESS_KEY: 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
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform apply -auto-approve
