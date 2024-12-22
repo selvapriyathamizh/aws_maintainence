@@ -5,6 +5,7 @@ provider "aws" {
 resource "aws_instance" "example" {
   ami           = "ami-0583d8c7a9c35822c" # Replace with your AMI ID
   instance_type = var.instance_type       # Use variable for instance type
+  key_name      = "myfirst"
   tags = {
     Name = "DailyInstanceTypeChange"
   }
