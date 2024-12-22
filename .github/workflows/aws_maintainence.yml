@@ -1,9 +1,11 @@
 name: Terraform Scheduled Update
 
 on:
-  schedule:
+  push:
+    branches: [ "main" ]
+  #schedule:
     # Schedule workflow to run daily at 10 PM UTC (adjust timezone as needed)
-    - cron: "09 13 * * *"
+    #- cron: "09 13 * * *"
 
 jobs:
   terraform:
