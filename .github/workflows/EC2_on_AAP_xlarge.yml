@@ -4,7 +4,15 @@ on:
   push:
     branches: [ "main" ]
   workflow_dispatch:
-
+    inputs:
+      loglevel:
+        description: "Stop or Start an EC2 instance"
+        required: true
+        default: 'stop'
+        type: choice
+        options:
+        - start
+        - stop
 jobs:
   terraform:
     runs-on: ubuntu-latest
