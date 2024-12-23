@@ -32,7 +32,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd  ${{ github.workspace }}
-        terraform import aws_instance.AAP i-04e873a43845f8d20 
+        terraform import aws_instance.AAP ${{ secrets.INSTANCE_ID }}
 
     - name: Terraform Plan
       env:
