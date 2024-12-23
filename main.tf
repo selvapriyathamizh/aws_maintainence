@@ -13,7 +13,7 @@ resource "aws_instance" "AAP" {
 
 resource "aws_ec2_instance_state" "ec2_state" {
   instance_id = aws_instance.AAP.id
-  state       = "var.instance_state"
+  state       = var.instance_state
 }
 
 variable "instance_type" {
