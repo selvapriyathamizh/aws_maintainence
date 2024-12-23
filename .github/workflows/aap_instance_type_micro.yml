@@ -1,9 +1,11 @@
 name: Terraform Scheduled Update
 
 on:
-  push:
-    branches: [ "main" ]
-  workflow_dispatch:
+  schedule:
+    - cron: "48 18 * * *"
+  #push:
+   # branches: [ "main" ]
+  #workflow_dispatch:
 
 jobs:
   terraform:
