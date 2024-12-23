@@ -19,7 +19,7 @@ resource "aws_ec2_instance_state" "ec2_state" {
 variable "instance_type" {
   description = "Instance type to set for the EC2 instance"
   type        = string
-  default     = "t2.medium" # Default target instance type
+  default     = "t2.micro" # Default target instance type
 }
 variable "instance_state" {
   description = "Instance type to set for the EC2 instance"
