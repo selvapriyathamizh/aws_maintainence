@@ -5,7 +5,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
     inputs:
-      loglevel:
+      instancestate:
         description: "Stop or Start an EC2 instance"
         required: true
         default: 'stop'
@@ -46,7 +46,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd  ${{ github.workspace }}
-        terraform plan
+        terraform plan -var="instance_state=${{ github.event.inputs.instancestate }}
 
     - name: Terraform Apply
       env:
