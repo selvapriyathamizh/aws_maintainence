@@ -13,7 +13,7 @@ resource "aws_instance" "AAP" {
 
 resource "aws_ec2_instance_state" "ec2_state" {
   instance_id = aws_instance.AAP.id
-  state       = "stopped"
+  state       = "var.instance_state"
 }
 
 variable "instance_type" {
@@ -21,4 +21,8 @@ variable "instance_type" {
   type        = string
   default     = "t2.medium" # Default target instance type
 }
-
+variable "instance_state" {
+  description = "Instance type to set for the EC2 instance"
+  type        = string
+  default     = "stopped" # Default target instance type
+}
