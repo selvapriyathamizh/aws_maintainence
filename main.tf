@@ -11,6 +11,11 @@ resource "aws_instance" "AAP" {
   }
 }
 
+resource "aws_ec2_instance_state" "ec2_state" {
+  instance_id = aws_instance.AAP.id
+  state       = "stopped"
+}
+
 variable "instance_type" {
   description = "Instance type to set for the EC2 instance"
   type        = string
