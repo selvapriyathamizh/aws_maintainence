@@ -8,11 +8,11 @@ on:
       instancestate:
         description: "Stop or Start an EC2 instance"
         required: true
-        default: 'stop'
+        default: 'running'
         type: choice
         options:
-        - start
-        - stop
+        - running
+        - stopped
 jobs:
   terraform:
     runs-on: ubuntu-latest
