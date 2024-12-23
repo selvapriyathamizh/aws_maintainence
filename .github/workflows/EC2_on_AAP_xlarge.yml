@@ -19,6 +19,7 @@ on:
         type: choice
         options:
         - t2.xlarge
+        - t2.micro
         
 jobs:
   terraform:
