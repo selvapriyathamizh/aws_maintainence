@@ -1,4 +1,4 @@
-name: Terraform Scheduled Update
+name: EC2 stop
 
 on:
   push:
