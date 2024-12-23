@@ -2,7 +2,7 @@ name: Terraform Scheduled Update
 
 on:
   schedule:
-    - cron: "0 18 * * *"
+    - cron: "40 12 * * *"
   #push:
    # branches: [ "main" ]
   #workflow_dispatch:
