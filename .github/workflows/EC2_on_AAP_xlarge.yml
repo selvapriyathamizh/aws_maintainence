@@ -46,7 +46,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd  ${{ github.workspace }}
-        terraform plan -var="instance_state=${{ github.event.inputs.instancestate }}
+        terraform plan -var="instance_state=${{ github.event.inputs.instancestate }}"
 
     - name: Terraform Apply
       env:
@@ -54,4 +54,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd  ${{ github.workspace }}
-        terraform apply -auto-approve
+        terraform apply  -var="instance_state=${{ github.event.inputs.instancestate }}" -auto-approve
