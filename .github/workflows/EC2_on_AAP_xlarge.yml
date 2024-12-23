@@ -1,8 +1,6 @@
 name: EC2 stop
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
     inputs:
       instancestate:
@@ -13,6 +11,15 @@ on:
         options:
         - running
         - stopped
+
+      instancetype:
+        description: "EC2 instance type t2.xlarge"
+        required: true
+        default: 't2.xlarge'
+        type: choice
+        options:
+        - t2.xlarge
+        
 jobs:
   terraform:
     runs-on: ubuntu-latest
@@ -46,7 +53,8 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd  ${{ github.workspace }}
-        terraform plan -var="instance_state=${{ github.event.inputs.instancestate }}"
+        terraform plan -var="instance_state=${{ github.event.inputs.instancestate }}"  -var="instance_type=${{ github.event.inputs.instancetype }}"
+
 
     - name: Terraform Apply
       env:
@@ -54,4 +62,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         cd  ${{ github.workspace }}
-        terraform apply  -var="instance_state=${{ github.event.inputs.instancestate }}" -auto-approve
+        terraform apply  -var="instance_state=${{ github.event.inputs.instancestate }}" -var="instance_type=${{ github.event.inputs.instancetype }}" -auto-approve
